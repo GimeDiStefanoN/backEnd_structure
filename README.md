@@ -35,7 +35,7 @@ Backend MVC structure, using
 ├── assets                              # contains views and script files
  ├── scripts                            # contains frontend script files
  ├── views                              # contains ejs template files
-    ├── layouts                             # contains meta
+    ├── layouts                             # contains head
     ├── partials                            # contains header, footer
     ├── pages                               # contains pages
 ├── public                              # contains public assets
