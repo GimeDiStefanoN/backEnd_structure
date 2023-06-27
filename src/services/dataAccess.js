@@ -13,8 +13,8 @@ const addUser = (users) =>{
     fs.writeFileSync(usersFilePath, usersList);
 }
 
-const editUser = (user) =>{
-    const newListUsers = '{"user": ' + JSON.stringify(user, null, 2) + '}';
+const editUser = (listaConIdNew) =>{
+    const newListUsers = '{"users": ' + JSON.stringify(listaConIdNew, null, 2) + '}';
     fs.writeFileSync(usersFilePath, newListUsers);
 }
 

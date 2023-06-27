@@ -2,19 +2,13 @@
   {
     "id": 1,
     "nombre": "Maria",
-    "apellido": "Velez",
-    "email": "mariaVelez@mail.com"
+    "apellido": "Gomez",
+    "email": "mariagomez@mail.com"
   },
   {
     "id": 2,
     "nombre": "Juan",
     "apellido": "Perez",
     "email": "juanperez@mail.com"
-  },
-  {
-    "id": 3,
-    "nombre": "Mario",
-    "apellido": "Gonzalez",
-    "email": "mariogonzalez@mail.com"
   }
 ]}

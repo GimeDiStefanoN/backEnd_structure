@@ -3,6 +3,7 @@
 const express = require('express');
 const path = require('path');
 const routes = require('./routes/routes');
+const bodyParser = require('body-parser');
 
 //inicializar express
 
@@ -21,8 +22,9 @@ const PORT = 3000
 
 // Agregar las rutas
 
-routes(app);
 app.use(express.static(publicPath)); //indico que todo lo estatico va estar en la direccion "public" (inicializamos valores y los paso al app)
+app.use(bodyParser.urlencoded({extended: false})); //indico que  vamos a usar bodyparser (inicializamos valores y los paso al app)
+routes(app);
 
 //inicio servidor
 

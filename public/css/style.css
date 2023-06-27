@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -10,7 +11,17 @@ body{
     flex-direction: column;
 }
 header{
-    height: 5vh;
+    height: 10vh;
+}
+.contenedorHeader{
+ padding: 0.5rem;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-between;
+}
+.fi{
+    font-size: 3rem;
 }
 footer{
     height: 10vh;
@@ -18,8 +29,8 @@ footer{
     justify-content: center;
 }
 main{
-    height: 85vh;
-    padding: 10px 5px;
+    height: 80vh;
+    padding: 2rem 1rem;
     display: flex; 
     flex-direction: column;
     align-items: center;
@@ -55,6 +66,7 @@ li{
     width: 100%;
     text-decoration: none;
     font-weight: bold;
+    padding-top: 2rem;
 }
 .modal-body{
     display: flex;

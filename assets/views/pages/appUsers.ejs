@@ -10,7 +10,7 @@
     <main>
         <a class="volver" href="/">Volver</a>
         <h1> Listado de Usuarios </h1>
-
+        <h6>CRUD Completo</h6>
         <ul>
             <% users.forEach(function(user) { %>
             <li>
@@ -19,10 +19,9 @@
                   <a><%= user.nombre + ' ' + user.apellido %></a>
                 </h4>
                 
-                <form action="" method="post">
-                  <button>Modificar</button>
-                </form>
-                <form action="/deleteUser/<%= user.id  %>" method="post">
+                <button type="button"  data-bs-toggle="modal" data-bs-target="#modalEditarUsuario<%= user.id %>" data-userid="<%= user.id %>">Modificar</button>
+                
+                <form action="/deleteUser/<%= user.id  %>" method="POST">
                   <button>Eliminar</button>
                 </form>
               </article>
@@ -30,11 +29,10 @@
             <% }); %>
         </ul>
 
+        <button type="button"  data-bs-toggle="modal" data-bs-target="#modalCrearUsuario"> Crear usuario</button>
+        
+        <!-- Modal para crear usuarios -->
         <form action="createUser" method="POST">
-          <button type="submit"  data-bs-toggle="modal" data-bs-target="#modalCrearUsuario"> Crear usuario</button>
-        
-        
-          <!-- Modal para crear usuarios -->
           <div class="modal" tabindex="-1" id="modalCrearUsuario">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -43,12 +41,12 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <label for="nombre" id="nombre">Nombre</label>
-                  <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                  <label for="apellido" id="apellido">Apellido</label>
-                  <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-                  <label for="email" id="email">Email</label>
-                  <input type="email" name="email" id="email" placeholder="Email">
+                  <label for="addNombre" id="nombre">Nombre</label>
+                  <input type="text" name="addNombre" id="addNombre" placeholder="Nombre">
+                  <label for="addApellido" id="apellido">Apellido</label>
+                  <input type="text" name="addApellido" id="addApellido" placeholder="Apellido">
+                  <label for="addEmail" id="email">Email</label>
+                  <input type="email" name="addEmail" id="addEmail" placeholder="Email">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -58,8 +56,11 @@
             </div>
           </div>
       </form>
+
         <!-- Modal para editar usuarios -->
-        <div class="modal" tabindex="-1">
+      <% users.forEach(function(user) { %>
+      <form action="/updateUser/<%= user.id  %>" method="post">
+        <div class="modal" tabindex="-1" id="modalEditarUsuario<%= user.id %>">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -67,12 +68,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <label for="nombre" id="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                <label for="apellido" id="apellido">Apellido</label>
-                <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-                <label for="email" id="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <label for="editNombre" id="nombre">Nombre</label>
+                <input type="text" name="editNombre" id="editNombre" placeholder="Nombre" value="<%= user.nombre %>">
+                <label for="editApellido" id="apellido">Apellido</label>
+                <input type="text" name="editApellido" id="editApellido" placeholder="Apellido" value="<%= user.apellido %>">
+                <label for="editEmail" id="email">Email</label>
+                <input type="email" name="editEmail" id="editEmail" placeholder="Email" value="<%= user.email %>">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -81,7 +82,8 @@
             </div>
           </div>
         </div>
-
+      </form>
+      <% }); %>
     </main>
     <footer>
         <%-include('../partials/footer') %>
