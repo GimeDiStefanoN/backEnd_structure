@@ -44,3 +44,6 @@ Backend MVC structure, using
   └── favicon.ico                       # favicon file
 ├── index.js                            # main entrypoint
 ```
+## Demo
+
+[video-crud.webm](https://github.com/GimeDiStefanoN/backEnd_structure/assets/97200944/8a111ae9-1b44-4749-ac7e-babae964f65a)
